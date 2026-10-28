@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un artiste{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un artiste</h1>
+    {{ form(formulaire) }}
+    <a href="{{ path("app_artiste") }}" class="btn btn-secondary mt-3">&lt; Retour à la liste des artistes</a>
+{% endblock %}

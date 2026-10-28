@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Supprimer un lieu{% endblock %}
+
+{% block body %}
+    <h1>Supprimer un lieu</h1>
+    <h2>Êtes-vous sûr de vouloir supprimer {{ lieu.nom }} ?</h2>
+    {{ form(formulaire) }}
+    <a href="{{ path("app_lieu") }}" class="btn btn-secondary mt-3">&lt; Retour à la liste des lieux</a>
+{% endblock %}

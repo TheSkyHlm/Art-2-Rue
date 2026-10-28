@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les artistes{% endblock %}
+
+{% block body %}
+    <h1>Les artistes</h1>
+    <table class="table table-striped">
+        <tr>
+            <th>Pseudonyme</th>
+            <th>Nom réel</th>
+            <th>Nationalité</th>
+            <th>Actions</th>
+        </tr>
+        {% for artiste in artistes %}
+            <tr>
+                <td>{{ artiste.pseudonyme }}</td>
+                <td>{{ artiste.nomReel }}</td>
+                <td>{{ artiste.nationalite }}</td>
+                <td>
+                    <a class="btn btn-warning" href="{{ path("app_modifier_artiste", {"id": artiste.id}) }}">Modifier</a>
+                    <a class="btn btn-danger" href="{{ path("app_supprimer_artiste", {"id": artiste.id}) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <a class="btn btn-primary" href="{{ path("app_ajouter_artiste") }}">Ajouter un artiste</a>
+{% endblock %}

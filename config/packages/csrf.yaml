@@ -1,0 +1,4 @@
+# Protection CSRF classique (basée sur la session) — simple et robuste sans JavaScript.
+framework:
+    csrf_protection:
+        enabled: true

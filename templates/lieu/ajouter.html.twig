@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un lieu{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un lieu</h1>
+    {{ form(formulaire) }}
+    <a href="{{ path("app_lieu") }}" class="btn btn-secondary mt-3">&lt; Retour à la liste des lieux</a>
+{% endblock %}
