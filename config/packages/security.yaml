@@ -1,0 +1,37 @@
+security:
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+
+    # Les comptes seront les bénévoles, identifiés par leur email.
+    providers:
+        app_benevoles:
+            entity:
+                class: App\Entity\Benevole
+                property: email
+
+    firewalls:
+        dev:
+            pattern: ^/(_profiler|_wdt|assets|build)/
+            security: false
+        main:
+            lazy: true
+            provider: app_benevoles
+            form_login:
+                login_path: app_connexion
+                check_path: app_connexion
+                enable_csrf: true
+            logout:
+                path: app_deconnexion
+                target: app_artiste
+
+    # TODO : protéger l'ajout / la modification / la suppression (en cours).
+    access_control:
+
+when@test:
+    security:
+        password_hashers:
+            Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+                algorithm: auto
+                cost: 4
+                time_cost: 3
+                memory_cost: 10

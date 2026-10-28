@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <h1>Connexion bénévole</h1>
+
+    {% if erreur %}
+        <div class="alert alert-danger">Email ou mot de passe incorrect.</div>
+    {% endif %}
+
+    <form method="post" style="max-width: 400px;">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="_username" value="{{ dernier_email }}" class="form-control" required autofocus>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Mot de passe</label>
+            <input type="password" id="password" name="_password" class="form-control" required>
+        </div>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <button class="btn btn-primary" type="submit">Se connecter</button>
+    </form>
+{% endblock %}
